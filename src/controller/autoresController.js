@@ -1,57 +1,78 @@
+import NaoEncontrado from "../erros/NaoEncontrado.js";
 import autores from "../models/Autor.js";
 
 class autorController{
     
-    static listarautors = (req, res) => {
-        autores.find((err, autores) => {
-        res.status(200).json(autores)
-    })
-}
-
-    static listarautorPorId = (req, res) =>{
-        const id = req.params.id;
-        autores.findById(id, (err, autores) => {
-            if(err){
-                res.status(400).send({message: `${err.message} - id do autor nao localizado`})
-            }else{
-                res.status(200).send(autores)
-            }
-        })
+  static listarautors = async (req, res, next) => {
+    try{
+      const autoresResultado = await autores.find();
+      await res.status(200).json(autoresResultado);
+    }catch(erro){
+      next(erro);
     }
+  };
 
-    static cadastrarautor = (req, res) => {
-        let autor = new autores(req.body);
-        autor.save((err) => {
-            if(err){
-                res.status(500).send({message: `${err.message} - Falha ao cadastrar autor`})
-            }else{
-                res.status(201).send(autor.toJSON());
-            }
-        })
+  // eslint-disable-next-line no-unused-vars
+  static listarautorPorId = async (req, res, next) =>{
+    try{
+      const {id} = req.params;
+      const autorResultado = await autores.findById(id); 
+      if(autorResultado !== null && autorResultado !== undefined){
+        res.status(200).send(autorResultado);
+      }else{
+        next(new NaoEncontrado("autor nao encontrado"));
+      }}catch(erro){
+      next(erro);
+    }  
+  };
+
+  // eslint-disable-next-line no-unused-vars
+  static cadastrarautor = async (req, res, next) => {
+    try{
+      const autor = await new autores(req.body);
+      await autor.save(()=>{
+        res.status(201).send(autor.toJSON());
+      });
+      
+    }catch(erro){
+      next(erro);
     }
+  };
 
-    static atualizaraautor = (req, res) => {
-        const  id = req.params.id;
-        autores.findByIdAndUpdate(id, {$set: req.body}, (err) => {
-            if(!err){
-                res.status(200).send({message: 'autor atualizado com sucesso'})
-            }else{
-                res.status(500).send({message: err.message})
-            }
-        })
+  // eslint-disable-next-line no-unused-vars
+  static atualizaraautor = async (req, res, next) => {
+    try{
+      const {id} = req.params;
+      // eslint-disable-next-line no-unused-vars
+      autores.findByIdAndUpdate(id, {$set: req.body}, (erro, autorA)=>{
+        if(autorA !== null){
+          res.status(200).send({message: "autor atualizado com sucesso"});
+        }else{
+          next(new NaoEncontrado("autor nao encontrado"));
+        }
+      });
+    }catch(erro){
+      next(erro);
     }
+  };
 
-    static excluirautor = (req, res) => {
-        const id = req.params.id;
-
-        autores.findByIdAndDelete(id, (err) => {
-            if(!err){
-                res.status(200).send({message: 'autor removido com sucesso'})
-            }else{
-                res.status(500).send({message: err.message})
-            }
-        })
+  // eslint-disable-next-line no-unused-vars
+  static excluirautor = async (req, res, next) => {
+    try{
+      const {id} = req.params;
+      // eslint-disable-next-line no-unused-vars
+      autores.findByIdAndDelete(id, (erro, autorResultado)=>{
+        if(autorResultado !== null && autorResultado !== undefined){
+          res.status(200).send("autor excluido com sucesso");
+        }else{
+          next(new NaoEncontrado("autor nao encontrado"));
+        }
+      });
+      
+    }catch(erro){
+      next(erro);
     }
+  };
 }
 
 
