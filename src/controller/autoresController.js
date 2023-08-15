@@ -1,5 +1,5 @@
 import NaoEncontrado from "../erros/NaoEncontrado.js";
-import autores from "../models/Autor.js";
+import {autores} from "../models/index.js";
 
 class autorController{
     
@@ -33,7 +33,6 @@ class autorController{
       await autor.save(()=>{
         res.status(201).send(autor.toJSON());
       });
-      
     }catch(erro){
       next(erro);
     }
