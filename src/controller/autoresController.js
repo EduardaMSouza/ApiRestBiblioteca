@@ -5,8 +5,9 @@ class autorController{
     
   static listarautors = async (req, res, next) => {
     try{
-      const autoresResultado = await autores.find();
-      await res.status(200).json(autoresResultado);
+      const autoresResultado = autores.find();
+      req.resultado = autoresResultado;
+      next();
     }catch(erro){
       next(erro);
     }
@@ -72,6 +73,36 @@ class autorController{
       next(erro);
     }
   };
+
+
+  static listarautoresPorFiltro = async (req, res, next) => {
+    try{
+      const {nome, nacionalidade } =  req.query;
+      const busca = {};
+      
+      if (nome) busca.nome = { $regex: nome, $options: "i"};
+      if(nacionalidade) busca.nacionalidade = { $regex: nacionalidade, $options: "i"};
+
+      const autoresResultado =  autores.find(busca);
+      if(autoresResultado !== null){
+        req.resultado = autoresResultado;
+        next();
+      }else{
+        res.status(200).send([]);
+      }
+    }catch(erro){
+      next(erro);
+    }
+  };
+
+
+
+
+
+
+
+
+
 }
 
 
