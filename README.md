@@ -19,17 +19,31 @@ NPM (gerenciador de pacotes do Node.js)
 O projeto fornece as seguintes rotas:
 
 Rota de Autores:
+
 GET /autores: Lista todos os autores. Também suporta paginação.
+
 GET /autores/busca: Lista autores com base em um filtro. Também suporta paginação.
+
 GET /autores/:id: Retorna informações sobre um autor específico com base no ID.
+
 POST /autores: Cadastra um novo autor.
+
 PUT /autores/:id: Atualiza as informações de um autor existente com base no ID.
+
 DELETE /autores/:id: Exclui um autor com base no ID.
+
 Rota de Livros:
+
 GET /livros: Lista todos os livros. Também suporta paginação.
+
 GET /livros/busca: Lista livros com base em um filtro. Também suporta paginação.
+
 GET /livros/:id: Retorna informações sobre um livro específico com base no ID.
+
 POST /livros: Cadastra um novo livro.
+
 PUT /livros/:id: Atualiza as informações de um livro existente com base no ID.
+
 DELETE /livros/:id: Exclui um livro com base no ID.
+
 Você pode acessar essas rotas usando uma ferramenta como o Postman ou através de chamadas HTTP diretamente.
