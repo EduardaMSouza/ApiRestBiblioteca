@@ -47,3 +47,10 @@ PUT /livros/:id: Atualiza as informações de um livro existente com base no ID.
 DELETE /livros/:id: Exclui um livro com base no ID.
 
 Você pode acessar essas rotas usando uma ferramenta como o Postman ou através de chamadas HTTP diretamente.
+
+
+![Listar autores](Captura de tela 2023-10-01 204404.png)
+![Cadastrar autor](Captura de tela 2023-10-01 204532.png)
+![Atuailizar autor](Captura de tela 2023-10-01 205955.png)
+![Exclusão autor](Captura de tela 2023-10-01 204341.png)
+
