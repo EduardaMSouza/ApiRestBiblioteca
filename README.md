@@ -71,7 +71,7 @@
 
 <h3>Cadastrar autor:</h3>
   
-<img src="CadastroAutor.png" alt="Cadastrar autor">
+<img src="CadastroAutores.png" alt="Cadastrar autor">
 
 <h3>Listagem por ID de autor:</h3>
   
