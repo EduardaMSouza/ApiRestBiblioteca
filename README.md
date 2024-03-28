@@ -1,59 +1,82 @@
-Este é um projeto de livraria baseado em Node.js e Express.js que fornece rotas para gerenciar livros e autores. 
-Este README fornecerá informações sobre como configurar, executar e usar este projeto.
+<h1>API REST Biblioteca</h1>
 
-Clone este repositório em sua máquina local:
-git clone <URL do repositório>
+<p>Este projeto consiste em uma API REST para gerenciamento de uma biblioteca, desenvolvida em Node.js e Express.js. Ela fornece rotas para manipulação de livros e autores.</p>
 
-Navegue até o diretório do projeto
-cd <diretório do projeto>
+<h2>Instalação</h2>
 
-Instale as dependências do projeto:
-npm install
+<ol>
+  <li>Clone este repositório em sua máquina local:</li>
+  <pre><code>git clone &lt;URL do repositório&gt;</code></pre>
 
-Após a configuração, você pode usar este projeto para gerenciar livros e autores por meio de suas rotas. Para iniciar o servidor, execute o seguinte comando:
-npm run dev
+  <li>Navegue até o diretório do projeto:</li>
+  <pre><code>cd &lt;diretório do projeto&gt;</code></pre>
 
-Pré-requisitos:
-Node.js (versão 14 ou superior)
-NPM (gerenciador de pacotes do Node.js)
-O projeto fornece as seguintes rotas:
+  <li>Instale as dependências do projeto:</li>
+  <pre><code>npm install</code></pre>
+</ol>
 
-Rota de Autores:
+<h2>Execução</h2>
 
-GET /autores: Lista todos os autores. Também suporta paginação.
+<p>Para iniciar o servidor, utilize o seguinte comando:</p>
 
-GET /autores/busca: Lista autores com base em um filtro. Também suporta paginação.
+<pre><code>npm run dev</code></pre>
 
-GET /autores/:id: Retorna informações sobre um autor específico com base no ID.
+<p>Certifique-se de ter o Node.js (versão 14 ou superior) e o NPM (gerenciador de pacotes do Node.js) instalados em seu sistema.</p>
 
-POST /autores: Cadastra um novo autor.
+<h2>Rotas</h2>
 
-PUT /autores/:id: Atualiza as informações de um autor existente com base no ID.
+<h3>Rota de Autores:</h3>
 
-DELETE /autores/:id: Exclui um autor com base no ID.
+<ul>
+  <li><strong>GET /autores:</strong> Lista todos os autores. Suporta paginação.</li>
 
-Rota de Livros:
+  <li><strong>GET /autores/busca:</strong> Lista autores com base em um filtro. Suporta paginação.</li>
 
-GET /livros: Lista todos os livros. Também suporta paginação.
+  <li><strong>GET /autores/:id:</strong> Retorna informações sobre um autor específico com base no ID.</li>
 
-GET /livros/busca: Lista livros com base em um filtro. Também suporta paginação.
+  <li><strong>POST /autores:</strong> Cadastra um novo autor.</li>
 
-GET /livros/:id: Retorna informações sobre um livro específico com base no ID.
+  <li><strong>PUT /autores/:id:</strong> Atualiza as informações de um autor existente com base no ID.</li>
 
-POST /livros: Cadastra um novo livro.
+  <li><strong>DELETE /autores/:id:</strong> Exclui um autor com base no ID.</li>
+</ul>
 
-PUT /livros/:id: Atualiza as informações de um livro existente com base no ID.
+<h3>Rota de Livros:</h3>
 
-DELETE /livros/:id: Exclui um livro com base no ID.
+<ul>
+  <li><strong>GET /livros:</strong> Lista todos os livros. Suporta paginação.</li>
 
-Você pode acessar essas rotas usando uma ferramenta como o Postman ou através de chamadas HTTP diretamente.
+  <li><strong>GET /livros/busca:</strong> Lista livros com base em um filtro. Suporta paginação.</li>
 
+  <li><strong>GET /livros/:id:</strong> Retorna informações sobre um livro específico com base no ID.</li>
 
-![Listar autores](ListagemAutores.png)
+  <li><strong>POST /livros:</strong> Cadastra um novo livro.</li>
 
-![Cadastrar autor](CadastroAutor.png)
+  <li><strong>PUT /livros/:id:</strong> Atualiza as informações de um livro existente com base no ID.</li>
 
-![Listagem por id autor](ListagemPorId.png)
+  <li><strong>DELETE /livros/:id:</strong> Exclui um livro com base no ID.</li>
+</ul>
 
-![Exclusão autor](ExclusaoAutor.png)
+<h2>Utilização</h2>
 
+<p>Você pode acessar essas rotas utilizando ferramentas como Postman ou através de chamadas HTTP diretamente.</p>
+
+<h2>Exemplos</h2>
+
+<p>A seguir estão algumas capturas de tela dos exemplos de uso:</p>
+
+<h3>Listar autores:</h3>
+  
+<img src="ListagemAutores.png" alt="Listar autores">
+
+<h3>Cadastrar autor:</h3>
+  
+<img src="CadastroAutor.png" alt="Cadastrar autor">
+
+<h3>Listagem por ID de autor:</h3>
+  
+<img src="ListagemPorId.png" alt="Listagem por id autor">
+
+<h3>Exclusão de autor:</h3>
+  
+<img src="ExclusaoAutor.png" alt="Exclusão autor">
